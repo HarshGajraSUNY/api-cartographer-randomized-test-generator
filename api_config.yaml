@@ -1,0 +1,28 @@
+
+create_user:
+  method: POST
+  path: "/users"
+  requires: []
+  provides: "user_id"
+  data_key: "users"
+
+create_account:
+  method: POST
+  path: "/accounts"
+  requires: ["user_id"]
+  provides: "account_id"
+  data_key: "accounts"
+
+create_transaction:
+  method: POST
+  path: "/transactions"
+  requires: ["account_id"]
+  provides: null
+  data_key: "transactions"
+
+create_analytics:
+  method: POST
+  path: "/analytics"
+  requires: ["user_id","account_id"]
+  provides: analytics_user_id
+  data_key: "analytics"
